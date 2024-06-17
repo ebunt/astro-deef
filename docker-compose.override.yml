@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+    scheduler:
+        volumes:
+        - /Users/eddie/.aws:/home/astro/.aws:rw
+    webserver:
+        volumes:
+        - /Users/eddie/.aws:/home/astro/.aws:rw
+    triggerer:
+        volumes:
+        - /Users/eddie/.aws:/home/astro/.aws:rw
