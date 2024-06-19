@@ -1,6 +1,9 @@
 .git
 .env
 .DS_Store
+.vscode
+.fleet
+.idea
 airflow_settings.yaml
 docker-compose.override.yml
 __pycache__/
