@@ -2,6 +2,7 @@
 .env
 .DS_Store
 airflow_settings.yaml
+docker-compose.override.yml
 __pycache__/
 astro
 .venv
