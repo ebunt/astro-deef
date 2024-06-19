@@ -1,0 +1,19 @@
+name: Astronomer CI - Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment Environment"
+        required: true
+        type: environment
+        default: dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Astro (${{ inputs.environment }})
+        environment: ${{ inputs.environment }}
+        uses: astronomer/deploy-action@v0.4
+        env:
+          ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+          DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
