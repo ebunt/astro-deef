@@ -10,9 +10,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - name: Deploy to Astro (${{ inputs.environment }})
-        environment: ${{ inputs.environment }}
         uses: astronomer/deploy-action@v0.4
         env:
           ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
