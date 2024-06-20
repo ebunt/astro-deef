@@ -1,4 +1,4 @@
-name: Astronomer Deployment
+name: Astronomer Deploy Variables
 on:
   workflow_dispatch:
     inputs:
