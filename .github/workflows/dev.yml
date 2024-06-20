@@ -1,0 +1,23 @@
+name: Astronomer Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment Environment"
+        required: true
+        type: environment
+        default: dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4.1.7
+      - name: Deploy to Astro (${{ inputs.environment }}) 
+        run: |
+          curl -sSL install.astronomer.io | sudo bash -s
+          astro deployment airflow-variable -k environment -v dev 
+        env:
+          ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+          DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
